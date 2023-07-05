@@ -1,0 +1,22 @@
+programs:
+    program_0:
+        A0 = 1
+        c = "d"
+        :
+            a = 2
+            c = "d"
+        ; program_1
+        
+    ; 
+
+    program_21:
+        a = 3
+        c = "d"
+    ; 
+
+    :
+        a = 4
+        c = "d"
+    ; program_31
+
+; 

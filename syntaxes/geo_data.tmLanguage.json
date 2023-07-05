@@ -1,0 +1,132 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "geo_data",
+	"patterns": [
+
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#err"
+		},
+		{
+			"include":"#comments_inline"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#strings_single"
+		},
+		{
+			"include": "#strings_double"
+		},
+		{
+			"include": "#paren-expression"
+		},
+		{
+			"include": "#name"
+		},
+		{
+			"include": "#variable"
+		}
+	],
+	"repository": {
+		"name":{
+			"patterns": [
+				{
+					"name":"keyword.control",
+					"match": "[a-zA-Z0-9_]*([[:space:]]*:|:)"
+				},
+				{
+					"name":"keyword.control",
+					"match": "(;[[:space:]]* )[a-zA-Z0-9_]*"
+				},
+				{
+					"name": "keyword.control",
+					"match": "(;)[a-zA-Z0-9_]*"
+				}
+			  ]
+		},
+		"variable":{
+			"patterns": [
+				{
+					"name":"constant.character",
+					"match": "[a-zA-Z0-9_]"
+				}
+			  ]
+		},
+		"strings": {
+			"name": "string.quoted.other",
+			"begin": "(`)",
+			"end": "(`)"
+		},
+		"strings_single": {
+			"name": "string.quoted.single",
+			"begin": "(')",
+			"end": "(')"
+		},
+		"strings_double": {
+			"name": "string.quoted.double",
+			"begin": "(\")",
+			"end": "(\")"
+		},
+		"comments": {
+			"name": "comment.block",
+			"begin": "-\\?",
+			"end": "\\?-",
+			"captures": {
+				"0": {
+				"name": "punctuation.definition.comment"
+				}
+			},
+			"patterns": [
+				{
+					"include":"#comments_inline"
+				}
+			]
+		},
+		"comments_inline": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "\\?\\?.*",
+					"captures": {
+						"0": {
+					  "name": "punctuation.definition.comment"
+					}
+				}
+			}
+		]			
+	},
+	"err": {
+		"patterns": [
+		  {
+			  "name": "invalid.deprecated",
+			  "match": "[^\n\r\b][0-9][[:alpha:]_]"
+		  }
+		]
+  	},
+	"numbers": {
+		"patterns": [
+			{
+			  "name": "constant.numeric.integer",
+			  "match": "\\b\\d+\\b"
+			},
+			{
+			  "name": "constant.numeric.decimal",
+			  "match": "\\b\\d+\\.\\d+\\b"
+			},
+			{
+			  "name": "constant.numeric.scientific",
+			  "match": "\\b\\d+\\.?\\d*[+-]?\\d+\\b"
+			}
+		  ]
+	}
+		
+	},
+	"scopeName": "source.geo_data"
+}

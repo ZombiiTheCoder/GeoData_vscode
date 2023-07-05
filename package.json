@@ -1,0 +1,29 @@
+{
+  "name": "geodata-syntax-highlighting",
+  "displayName": "Geo Data Syntax Highlighting",
+  "description": "This Highlights sytax for the GeoData DataType",
+  "version": "0.0.1",
+  "publisher": "Zomboider",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "geo_data",
+      "aliases": ["geo_data", "GeoData", "Geo_Data"],
+      "extensions": [".geo_data"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "geo_data",
+      "scopeName": "source.geo_data",
+      "path": "./syntaxes/geo_data.tmLanguage.json"
+    }]
+  },
+  "repository": {
+    "url": "https://github.com/ZombiiTheCoder/GeoData_vscode"
+  }
+}
